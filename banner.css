@@ -1,0 +1,23 @@
+/* X79 production landing banner */
+#welcome.banner-screen{background:#04121c;overflow:hidden}
+.banner-main{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;object-position:center;display:block;opacity:0;transition:opacity .35s ease;user-select:none;-webkit-user-drag:none}
+.banner-main.ready{opacity:1}
+.banner-effects{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+.banner-effects:before{content:"";position:absolute;top:-35%;bottom:-35%;left:-30%;width:20%;transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,229,151,.08),rgba(255,246,205,.22),rgba(255,229,151,.07),transparent);filter:blur(8px);animation:bannerSweep 9s ease-in-out infinite}
+.banner-effects:after{content:"";position:absolute;left:10%;right:4%;bottom:7%;height:31%;background:radial-gradient(ellipse at 60% 80%,rgba(255,192,57,.15),transparent 58%);opacity:.55;animation:bannerBreathe 4.8s ease-in-out infinite}
+.banner-hot{position:absolute;z-index:5;border:0;background:transparent;cursor:pointer;border-radius:18px;transition:box-shadow .22s ease,background .22s ease,transform .22s ease}
+.banner-hot:hover{background:rgba(255,216,117,.045);box-shadow:0 0 34px rgba(255,202,74,.4);transform:translateY(-1px)}
+.banner-login{left:32.15%;top:53.2%;width:17.6%;height:10.5%}
+.banner-register{left:50.75%;top:53.2%;width:17.5%;height:10.5%}
+.banner-mobile-actions{display:none}
+@keyframes bannerSweep{0%,28%{left:-30%;opacity:0}42%{opacity:.9}70%,100%{left:115%;opacity:0}}
+@keyframes bannerBreathe{0%,100%{opacity:.32;transform:scale(.99)}50%{opacity:.66;transform:scale(1.015)}}
+@media(max-width:720px){
+ .banner-main{object-fit:cover;object-position:38% center}
+ .banner-hot{display:none}
+ .banner-mobile-actions{position:absolute;left:5%;right:5%;bottom:4.5%;z-index:6;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+ .banner-mobile-actions button{min-height:48px;border:1px solid #e8bd58;font-weight:900;letter-spacing:.04em}
+ .banner-mobile-actions .login-open{background:linear-gradient(180deg,#f3d47c,#b87c27);color:#111920}
+ .banner-mobile-actions .register-open{background:rgba(4,31,43,.92);color:#f2ce71}
+}
+@media(prefers-reduced-motion:reduce){.banner-effects:before,.banner-effects:after{animation:none}}
