@@ -1,6 +1,9 @@
 /* X79 production landing banner */
-#welcome.banner-screen{background:#04121c;overflow:hidden}
-.banner-main{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;object-position:center;display:block;opacity:0;transition:opacity .35s ease;user-select:none;-webkit-user-drag:none}
+#welcome.banner-screen{background:radial-gradient(circle at 50% 25%,#0b3c52 0,#061923 48%,#020a10 100%);overflow:hidden}
+#welcome.banner-screen:before{content:"X79";position:absolute;left:50%;top:43%;transform:translate(-50%,-50%);font-size:clamp(86px,18vw,260px);font-weight:950;letter-spacing:-.08em;color:#d7aa49;opacity:.18;text-shadow:0 0 38px rgba(226,184,84,.22)}
+#welcome.banner-screen:after{content:"SỰ KIỆN SẮP RA MẮT TRANG WEB";position:absolute;left:50%;top:59%;transform:translateX(-50%);width:90%;text-align:center;font-weight:900;letter-spacing:.12em;color:#e7c56d;opacity:.38}
+.banner-main{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;opacity:1;transition:opacity .25s ease;user-select:none;-webkit-user-drag:none;z-index:1}
+.banner-main:not([src]){opacity:0}
 .banner-main.ready{opacity:1}
 .banner-effects{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:2}
 .banner-effects:before{content:"";position:absolute;top:-35%;bottom:-35%;left:-30%;width:20%;transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,229,151,.08),rgba(255,246,205,.22),rgba(255,229,151,.07),transparent);filter:blur(8px);animation:bannerSweep 9s ease-in-out infinite}
@@ -12,7 +15,15 @@
 .banner-mobile-actions{display:none}
 @keyframes bannerSweep{0%,28%{left:-30%;opacity:0}42%{opacity:.9}70%,100%{left:115%;opacity:0}}
 @keyframes bannerBreathe{0%,100%{opacity:.32;transform:scale(.99)}50%{opacity:.66;transform:scale(1.015)}}
-@media(max-width:720px){
+@media(max-width:900px) and (max-aspect-ratio:4/3){
+ .banner-main{object-fit:contain;object-position:center;background:#020a10}
+ .banner-hot{display:none}
+ .banner-mobile-actions{position:absolute;left:5%;right:5%;bottom:4.5%;z-index:6;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+ .banner-mobile-actions button{min-height:48px;border:1px solid #e8bd58;font-weight:900;letter-spacing:.04em}
+ .banner-mobile-actions .login-open{background:linear-gradient(180deg,#f3d47c,#b87c27);color:#111920}
+ .banner-mobile-actions .register-open{background:rgba(4,31,43,.92);color:#f2ce71}
+}
+@media(max-width:720px) and (min-aspect-ratio:4/3){
  .banner-main{object-fit:cover;object-position:38% center}
  .banner-hot{display:none}
  .banner-mobile-actions{position:absolute;left:5%;right:5%;bottom:4.5%;z-index:6;display:grid;grid-template-columns:1fr 1fr;gap:10px}
