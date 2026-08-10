@@ -1,0 +1,1 @@
+(()=>{const img=document.getElementById('bannerMain');if(!img)return;fetch('assets/banner-main-20260811.b64?v=prod-0811-0604',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('banner');return r.text()}).then(t=>{img.onload=()=>img.classList.add('ready');img.src='data:image/webp;base64,'+t.trim()}).catch(()=>{img.style.display='none'})})();
